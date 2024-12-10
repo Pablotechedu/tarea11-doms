@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nombre con Color Aleatorio</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0;
+      }
+
+      p {
+        font-size: 24px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      // Función para generar un color aleatorio (excluyendo tonos rojos)
+      function generarColorAleatorio() {
+        const tono = Math.floor(Math.random() * 120) + 120; // 120-240 (verde a azul)
+        return `hsl(${tono}, 70%, 60%)`;
+      }
+
+      // Función para agregar el nombre con color aleatorio
+      function mostrarNombreColorido() {
+        let elemento = document.createElement("p");
+        elemento.innerText = "Pablo Aguilar Masaya";
+
+        elemento.style.backgroundColor = generarColorAleatorio();
+        elemento.style.color = "white";
+        elemento.style.padding = "20px";
+        elemento.style.margin = "10px";
+        elemento.style.transition = "all 0.3s ease";
+
+        // Agregar al documento
+        document.body.appendChild(elemento);
+      }
+
+      // Ejecutar cuando el documento esté listo
+      document.addEventListener("DOMContentLoaded", mostrarNombreColorido);
+    </script>
+  </body>
+</html>
